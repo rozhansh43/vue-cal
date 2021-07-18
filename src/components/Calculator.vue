@@ -168,25 +168,26 @@ body {
 }
 .display {
   margin: 10px 5px;
-  background-color: #000;
+  background-color: rgb(240, 240, 240);
   font-size: 36px;
   letter-spacing: 4px;
   text-align: right;
   padding: 15px 10px;
   overflow: hidden;
-  border: 1px solid #444;
+  border: none;
   border-radius: 3px;
 }
 .display *::before {
-  content: ".";
-  color: rgba(0,0,0,0);
+  content: "";
+background-color: rgb(240, 240, 240);
 }
 .button {
   margin: 5px;
   text-align: center;
   padding: 20px 5px;
   max-width: 90px;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgb(250, 250, 250);
+  box-shadow: 4px 3px 80px 3px rgb(201, 201, 201);
   border-radius: 3px;
 }
 .button:hover,
@@ -203,11 +204,11 @@ body {
   max-width: 500px;
 }
 .button.blue {
-  background-color: rgba(0,50,215,0.5);
+  background-color: rgba(53, 55, 59, 0.5);
 }
 .button.blue:hover,
 .button.blue:active {
-  background-color: #0032d7;
+  background-color: #494d5a;
 }
 .button.hidden {
   cursor: default;
