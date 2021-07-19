@@ -1,18 +1,18 @@
 <template>
 <div id="app">
   <div class="abs-center calculator">
-    <div class="rela-block display-section">
-      <div class="rela-block display">
-        <div class="rela-block small">
+    <div class="block display-section">
+      <div class="block display">
+        <div class="block small">
           {{fullFormula}}
         </div>
 
-        <div class="rela-block">
+        <div class="block">
           {{(currentInput?currentSign:'')}}{{currentInput||result}}
         </div>
       </div>
     </div>
-    <div class="rela-block button-section">
+    <div class="block button-section">
       <div class="flex-r button-row">
         <div class="button blue" @click="clear">
           AC

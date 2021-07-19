@@ -10,7 +10,7 @@
   bottom: 0;
   transform: translate(-50%, -50%);
 }
-.rela-block {
+.block {
   display: block;
   position: relative;
 }
