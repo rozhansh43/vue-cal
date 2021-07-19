@@ -126,17 +126,17 @@ export default {
       }
     },
     changeSign () {
-      this.currentSign ? this.currentSign = '' : this.currentSign = '-'
+      this.currentSign ? this.currentSign = '  ' : this.currentSign = '-'
     },
     addOperator (op) {
       if(this.result) {
-        this.fullFormula = `  ${this.result}  ${op}  `
-        this.result = ''
+        this.fullFormula = `${this.result}${op}`
+        this.result = '  '
       } else {
         if (this.currentInput) {
-          this.fullFormula += `  ${this.currentSign} ${op}  `
-          this.currentSign = ''
-          this.currentInput = ''
+          this.fullFormula += `${this.currentSign}${op}`
+          this.currentSign = '  '
+          this.currentInput = '  '
         } else {
           if (this.fullFormula.includes(' ')) {
             var temp = this.fullFormula.split('')
@@ -156,14 +156,14 @@ export default {
         this.result = this.currentInput
       }
       
-      this.currentSign = ''
-      this.currentInput = ''
+      this.currentSign = '  '
+      this.currentInput = '  '
       
       this.fullFormula = this.result 
     },
     clear () {
-      this.currentSign = ''
-      this.currentInput = ''
+      this.currentSign = '  '
+      this.currentInput = '  '
       this.fullFormula = ''
       this.result = ''
     },
