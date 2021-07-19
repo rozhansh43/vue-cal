@@ -82,11 +82,11 @@ background-color: rgb(240, 240, 240);
   flex: 3 1 0;
   max-width: 500px;
 }
-.button.blue {
+.button.grey {
   background-color: rgba(53, 55, 59, 0.5);
 }
-.button.blue:hover,
-.button.blue:active {
+.button.grey:hover,
+.button.grey:active {
   background-color: #494d5a;
 }
 .button.hidden {

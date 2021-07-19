@@ -18,11 +18,11 @@
     </div>
     <div class="block button-section">
       <div class="flex-r button-row">
-        <div class="button blue" @click="clear">
+        <div class="button grey" @click="clear">
           AC
         </div>
 
-        <div class="button blue" @click="inputClear">
+        <div class="button grey" @click="inputClear">
           C
         </div>
 
@@ -92,7 +92,7 @@
           .
         </div>
 
-        <div class="button blue" @click="equal">
+        <div class="button grey" @click="equal">
           =
         </div>
       </div>
