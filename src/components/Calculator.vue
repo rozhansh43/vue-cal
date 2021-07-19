@@ -3,6 +3,10 @@
   <div class="abs-center calculator">
     <div class="block display-section">
       <div class="block display">
+        <p>
+          {{ this.inputResult }}
+        </p>
+        <input :value="this.inputResult" type="text" v-model="fullFormula" @keyup.enter="inputexecute" >
         <div class="block small">
           {{fullFormula}}
         </div>
@@ -106,6 +110,7 @@ export default {
       currentInput: '',
       fullFormula: '',
       result: '',
+      inputResult: ''
     };
   },
   methods: {
@@ -122,42 +127,56 @@ export default {
       }
     },
     changeSign () {
-      (this.currentSign)?(this.currentSign = ''):(this.currentSign = '-');
+      (this.currentSign)?(this.currentSign = ''):(this.currentSign = '-')
     },
     addOperator (op) {
       if(this.result) {
-        this.fullFormula = (this.result+' '+op+' ');
-        this.result = '';
+        this.fullFormula = (this.result +' '+ op +' ')
+        this.result = ''
       } else {
         if (this.currentInput) {
-          this.fullFormula += (this.currentSign+this.currentInput+' '+op+' ');
-          this.currentSign = '';
-          this.currentInput = '';
+          this.fullFormula += (this.currentSign + this.currentInput +' '+ op +' ')
+          this.currentSign = ''
+          this.currentInput = ''
         } else {
           if(this.fullFormula.includes(' ')) {
-            var temp = this.fullFormula.split('');
-            temp[temp.length-2] = op;
-            this.fullFormula = temp.join('');
+            var temp = this.fullFormula.split('')
+            temp[temp.length-2] = op
+            this.fullFormula = temp.join('')
           }
         }
       }
     },
     execute () {
       if(this.fullFormula) {
-        this.fullFormula += (this.currentSign+this.currentInput);
+        this.fullFormula += (this.currentSign + this.currentInput);
         this.result = eval(this.fullFormula);
       } else {
-        this.fullFormula = this.currentSign+this.currentInput;
+        this.fullFormula = this.currentSign + this.currentInput;
         this.result = this.currentInput;
       }
-      this.currentSign = '';
-      this.currentInput = '';
+      this.currentSign = ''
+      this.currentInput = ''
+    },
+    inputexecute () {
+       if(this.fullFormula) {
+        this.fullFormula += (this.currentSign + this.currentInput);
+        this.result = eval(this.fullFormula);
+      } else {
+        this.fullFormula = this.currentSign + this.currentInput;
+        this.result = this.currentInput;
+      }
+      this.currentSign = ''
+      this.currentInput = ''
+      this.inputResult = this.fullFormula + '=' + this.result 
+      this.fullFormula = ''
+      this.inputResult
     },
     clear () {
-      this.currentSign = '';
-      this.currentInput = '';
-      this.fullFormula = '';
-      this.result = '';
+      this.currentSign = ''
+      this.currentInput = ''
+      this.fullFormula = ''
+      this.result = ''
     },
     inputClear () {
       this.currentSign = '';
@@ -169,8 +188,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-
-
-</style>
