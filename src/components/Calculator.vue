@@ -6,7 +6,7 @@
         <p>
           {{ this.inputResult }}
         </p>
-        <input :value="this.inputResult" type="text" v-model="fullFormula" @keyup.enter="inputexecute" >
+        <input  type="text" v-model="fullFormula" @keyup.enter="inputexecute" >
         <div class="block small">
           {{fullFormula}}
         </div>
@@ -185,6 +185,6 @@ export default {
     equal () {
       if(this.currentInput){this.execute()}
     }
-    },
+  },
 };
 </script>
