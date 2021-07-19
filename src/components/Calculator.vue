@@ -9,13 +9,14 @@
           AC
         </div>
 
-        <div class="button grey" @click="clear">
+        <div class="button grey" @click="lastindex">
           C
         </div>
 
         <div class="button" @click="changeSign">
           +/-
         </div>
+        
         <div class="button" @click="addOperator('/')">/</div>
       </div>
 
@@ -36,6 +37,7 @@
           *
         </div>
       </div>
+
       <div class="flex-r button-row">
         <div class="button" @click="updateNumber('4')">
           4
@@ -53,6 +55,7 @@
           -
         </div>
       </div>
+
       <div class="flex-r button-row">
         <div class="button" @click="updateNumber('1')">
           1
@@ -70,6 +73,7 @@
           +
         </div>
       </div>
+
       <div class="flex-r button-row">
         <div class="button wide" @click="updateNumber('0')">
           0
@@ -105,11 +109,11 @@ export default {
     updateNumber (digit) {        
       if (digit === '.') {
         if (!this.currentInput || !(this.currentInput * 1)) { 
-          this.currentInput = '0'
+          this.fullFormula = '0'
         }
 
         if (!(this.currentInput.includes('.'))) {
-          this.currentInput += '.'
+          this.fullFormula += '.'
         }
       } else {
         (!this.currentInput || (!(this.currentInput*1) && !(this.currentInput.includes('.')))) ? (
@@ -162,6 +166,10 @@ export default {
       this.currentInput = ''
       this.fullFormula = ''
       this.result = ''
+    },
+    lastindex () {
+      this.fullFormula = this.fullFormula.slice (0,-1)
+      this.result = this.result.slice (0,-1)
     }
   }
 };
