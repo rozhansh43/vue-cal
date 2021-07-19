@@ -3,10 +3,8 @@
   <div class="abs-center calculator">
     <div class="block display-section">
       <div class="block display">
-        <p>
-          {{ this.inputResult }}
-        </p>
-        <input  type="text" v-model="fullFormula" @keyup.enter="inputexecute" >
+        <input  type="text" v-model="fullFormula" @keyup.enter="execute" >
+        
         <div class="block small">
           {{fullFormula}}
         </div>
@@ -92,7 +90,7 @@
           .
         </div>
 
-        <div class="button grey" @click="equal">
+        <div class="button grey" @click="execute">
           =
         </div>
       </div>
@@ -116,8 +114,12 @@ export default {
   methods: {
     updateNumber (digit) {        
       if(digit === '.') {
-        if(!this.currentInput || !(this.currentInput*1)) { this.currentInput = '0'; }
-        if(!(this.currentInput.includes('.'))) { this.currentInput += '.'; }
+        if(!this.currentInput || !(this.currentInput*1)) { 
+          this.currentInput = '0'
+        }
+        if(!(this.currentInput.includes('.'))) { 
+          this.currentInput += '.'
+          }
       } else {
         (!this.currentInput || (!(this.currentInput*1) && !(this.currentInput.includes('.')))) ? (
             this.currentInput = digit
@@ -157,20 +159,8 @@ export default {
       }
       this.currentSign = ''
       this.currentInput = ''
-    },
-    inputexecute () {
-       if(this.fullFormula) {
-        this.fullFormula += (this.currentSign + this.currentInput);
-        this.result = eval(this.fullFormula);
-      } else {
-        this.fullFormula = this.currentSign + this.currentInput;
-        this.result = this.currentInput;
-      }
-      this.currentSign = ''
-      this.currentInput = ''
-      this.inputResult = this.fullFormula + '=' + this.result 
-      this.fullFormula = ''
-      this.inputResult
+      this.fullFormula = this.result 
+
     },
     clear () {
       this.currentSign = ''
@@ -182,9 +172,6 @@ export default {
       this.currentSign = '';
       this.currentInput = '';
     },
-    equal () {
-      if(this.currentInput){this.execute()}
-    }
   },
 };
 </script>
