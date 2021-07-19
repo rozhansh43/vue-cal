@@ -130,11 +130,11 @@ export default {
     },
     addOperator (op) {
       if(this.result) {
-        this.fullFormula = `${this.result} ${op} `
+        this.fullFormula = `  ${this.result}  ${op}  `
         this.result = ''
       } else {
         if (this.currentInput) {
-          this.fullFormula += `${this.currentSign} ${op} `
+          this.fullFormula += `  ${this.currentSign} ${op}  `
           this.currentSign = ''
           this.currentInput = ''
         } else {
