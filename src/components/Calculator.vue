@@ -167,8 +167,11 @@ export default {
       this.result = ''
     },
     lastindex () {
-      this.fullFormula = this.fullFormula.slice (0,-1)
-      this.result = this.result.slice (0,-1)
+      if (this.result == '') {
+        this.fullFormula = this.fullFormula.slice (0,-1)      
+      } else {
+        this.fullFormula = this.result.toString().split('').slice(0, -1).join('')
+      }
     }
   }
 };
