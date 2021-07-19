@@ -111,7 +111,6 @@ export default {
         if (!this.currentInput || !(this.currentInput * 1)) { 
           this.fullFormula = '0'
         }
-
         if (!(this.currentInput.includes('.'))) {
           this.fullFormula += '.'
         }
@@ -130,13 +129,13 @@ export default {
     },
     addOperator (op) {
       if(this.result) {
-        this.fullFormula = `${this.result}${op}`
+        this.fullFormula = `${this.result} ${op} `
         this.result = '  '
       } else {
         if (this.currentInput) {
-          this.fullFormula += `${this.currentSign}${op}`
+          this.fullFormula += `${this.result} ${op} `
           this.currentSign = '  '
-          this.currentInput = '  '
+          this.currentInput = ''
         } else {
           if (this.fullFormula.includes(' ')) {
             var temp = this.fullFormula.split('')
