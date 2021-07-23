@@ -134,12 +134,12 @@ export default {
       } else {
         if (this.currentInput) {
           this.fullFormula += `${this.result} ${op}`
-          this.currentSign = '  '
-          this.currentInput = '  '
+          this.currentSign = ''
+          this.currentInput = ''
         } else {
           if (this.fullFormula.includes('')) {
             var temp = this.fullFormula.split('')
-            temp[temp.length-2] = op
+            temp[temp.length] = op
             this.fullFormula = temp.join('')
           }
         }
@@ -155,15 +155,15 @@ export default {
         this.result = this.currentInput
       }
       
-      this.currentSign = '  '
-      this.currentInput = '  '
+      this.currentSign = ''
+      this.currentInput = ''
       
       this.fullFormula = this.result 
     },
     clear () {
-      this.currentSign = '  '
-      this.currentInput = '  '
-      this.fullFormula = '  '
+      this.currentSign = ''
+      this.currentInput = ''
+      this.fullFormula = ''
       this.result = ''
     },
     lastindex () {
