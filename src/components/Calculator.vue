@@ -135,11 +135,11 @@ export default {
         if (this.currentInput) {
           this.fullFormula += `${this.result} ${op}`
           this.currentSign = ''
-          this.currentInput = ''
+          this.currentInput = ' '
         } else {
           if (this.fullFormula.includes('')) {
             var temp = this.fullFormula.split('')
-            temp[temp.length] = op
+            temp[temp.length-1] = op
             this.fullFormula = temp.join('')
           }
         }
@@ -156,13 +156,13 @@ export default {
       }
       
       this.currentSign = ''
-      this.currentInput = ''
+      this.currentInput = ' '
       
       this.fullFormula = this.result 
     },
     clear () {
       this.currentSign = ''
-      this.currentInput = ''
+      this.currentInput = ' '
       this.fullFormula = ''
       this.result = ''
     },
