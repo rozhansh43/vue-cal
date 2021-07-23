@@ -99,16 +99,16 @@ export default {
   data () {
     return {
       currentSign: '',
-      currentInput: '',
-      fullFormula: '',
+      currentInput: '  ',
+      fullFormula: '  ',
       result: '',
-      inputResult: ''
+      inputResult: '  '
     }
   },
   methods: {
     updateNumber (digit) {        
       if (digit === '.') {
-        if (!this.currentInput || !(this.currentInput * 1)) { 
+        if (!this.currentInput || !(this.currentInput * 1) && this.result == "") { 
           this.fullFormula = '0'
         }
         if (!(this.currentInput.includes('.'))) {
@@ -125,19 +125,19 @@ export default {
       }
     },
     changeSign () {
-      this.currentSign ? this.currentSign = '  ' : this.currentSign = '-'
+      this.currentSign ? this.currentSign = '' : this.currentSign = '-'
     },
     addOperator (op) {
       if(this.result) {
-        this.fullFormula = `${this.result} ${op} `
-        this.result = '  '
+        this.fullFormula = `${this.result} ${op}`
+        this.result = ''
       } else {
         if (this.currentInput) {
-          this.fullFormula += `${this.result} ${op} `
+          this.fullFormula += `${this.result} ${op}`
           this.currentSign = '  '
-          this.currentInput = ''
+          this.currentInput = '  '
         } else {
-          if (this.fullFormula.includes(' ')) {
+          if (this.fullFormula.includes('')) {
             var temp = this.fullFormula.split('')
             temp[temp.length-2] = op
             this.fullFormula = temp.join('')
@@ -163,14 +163,15 @@ export default {
     clear () {
       this.currentSign = '  '
       this.currentInput = '  '
-      this.fullFormula = ''
+      this.fullFormula = '  '
       this.result = ''
     },
     lastindex () {
       if (this.result == '') {
         this.fullFormula = this.fullFormula.slice (0,-1)      
       } else {
-        this.fullFormula = this.result.toString().split('').slice(0, -1).join('')
+        this.result = this.result.toString().slice(0, -1)
+        this.fullFormula = this.result
       }
     }
   }
