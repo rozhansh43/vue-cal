@@ -100,9 +100,9 @@ export default {
     return {
       currentSign: '',
       currentInput: '  ',
-      fullFormula: '  ',
+      fullFormula: '',
       result: '',
-      inputResult: '  '
+      inputResult: ''
     }
   },
   methods: {
@@ -135,9 +135,10 @@ export default {
         if (this.currentInput) {
           this.fullFormula += `${this.result} ${op}`
           this.currentSign = ''
-          this.currentInput = ' '
+          this.currentInput = ''
         } else {
           if (this.fullFormula.includes('')) {
+            this.currentInput = ''
             var temp = this.fullFormula.split('')
             temp[temp.length-1] = op
             this.fullFormula = temp.join('')
